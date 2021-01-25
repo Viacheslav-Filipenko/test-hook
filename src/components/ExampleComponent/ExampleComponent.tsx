@@ -1,8 +1,4 @@
-/**
- * @class ExampleComponent
- */
-
-import * as React from 'react';
+import React from 'react';
 
 import './ExampleComponent.css';
 
@@ -13,18 +9,13 @@ export interface Props {
    text: string;
 }
 
-/** My First component */
-export class ExampleComponent extends React.Component<Props> {
-   render() {
-      const { text } = this.props;
-
-      return (
-         <div className="test">
-            Example Component: {text}
-            <p>Coool!</p>
-         </div>
-      );
-   }
-}
+const ExampleComponent: React.FC<Props> = ({ text }) => {
+   return (
+      <div className="test">
+         Example Component: {text}
+         <p>Coool!</p>
+      </div>
+   );
+};
 
 export default ExampleComponent;
