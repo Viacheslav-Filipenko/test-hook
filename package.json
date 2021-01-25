@@ -15,7 +15,7 @@
    "typings": "dist/index",
    "scripts": {
       "lint": "eslint src/**/* --ext .ts,.tsx --fix",
-      "test": "npm run lint && jest",
+      "test": "npm run lint",
       "build": "rollup -c",
       "start": "rollup -c -w && npm run prettier-watch",
       "prepare": "npm run build",
@@ -23,7 +23,11 @@
       "storybook": "start-storybook -p 6006",
       "build-storybook": "build-storybook"
    },
-   "dependencies": {},
+   "dependencies": {
+      "@material-ui/core": "^4.11.3",
+      "@material-ui/icons": "^4.11.2",
+      "nuka-carousel": "^4.7.5"
+   },
    "peerDependencies": {
       "prop-types": "^15.7.2",
       "react": "^16.0.0",

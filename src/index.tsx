@@ -1,4 +1,7 @@
-import { ExampleComponent, Props } from './components/ExampleComponent/ExampleComponent';
+export { CollectionCard } from './modules/collection/components/CollectionCard/CollectionCard';
 
-export { ExampleComponent, Props };
-export { ExampleComponentState } from './components/ExampleComponentState/ExampleComponent';
+export { Carousel } from './modules/carousel/Carousel';
+export {
+   CarouselImageCard
+} from './modules/carousel/components/CarouselImageCard/CarouselImageCard';
+export { CarouselHeadline } from './modules/carousel/components/CarouselHeadline/CarouselHeadline';
