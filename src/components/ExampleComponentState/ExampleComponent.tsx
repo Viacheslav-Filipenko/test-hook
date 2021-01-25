@@ -10,7 +10,9 @@ export interface Props {
 export const ExampleComponentState: React.FC<Props> = ({ text }) => {
    const [value, setValue] = useState('use state');
 
-   setValue('used state');
+   if (value === 'use state') {
+      setValue('used state');
+   }
 
    return (
       <div className="test">
