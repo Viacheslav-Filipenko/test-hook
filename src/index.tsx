@@ -2,3 +2,4 @@ import { ExampleComponent, Props } from './components/ExampleComponent/ExampleCo
 import './export.css';
 
 export { ExampleComponent, Props };
+export { ExampleComponentState } from './components/ExampleComponentState/ExampleComponent';
