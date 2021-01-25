@@ -33,6 +33,11 @@ export default {
          clean: true,
          exclude: ['src/**/*.stories.tsx', 'src/**/*.test.(tsx|ts)']
       }),
-      commonjs()
+      commonjs({
+         namedExports: {
+            'node_modules/react-is/index.js': ['ForwardRef', 'Memo', 'isFragment'],
+            'node_modules/react-lazy-load-image-component/build/index.js': ['LazyLoadImage']
+         }
+      })
    ]
 };
