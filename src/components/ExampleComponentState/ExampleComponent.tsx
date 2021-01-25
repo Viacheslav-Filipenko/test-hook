@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import './ExampleComponent.css';
-
 export interface Props {
    /**
     * Simple text prop
