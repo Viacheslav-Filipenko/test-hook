@@ -7,12 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './carousel-headline.jss';
 
 export interface ICarouselHeadlineProps {
-   title: string;
    href: string;
    color: string;
+   children?: React.ReactNode;
 }
 
-export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ title, href, color }) => {
+export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ children, href, color }) => {
    const classes = useStyles();
 
    return (
@@ -22,7 +22,7 @@ export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ title, href
                <Divider className={classes.divider} style={{ backgroundColor: color }} />
                <Typography className={classes.title} style={{ color: color }} variant="h1">
                   <Link className={classes.link} color="inherit" href={href}>
-                     {title}
+                     {children}
                   </Link>
                </Typography>
             </div>
