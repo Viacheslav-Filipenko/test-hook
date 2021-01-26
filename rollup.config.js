@@ -40,6 +40,11 @@ export default {
                'Memo',
                'isFragment'
             ],
+            'node_modules/@material-ui/utils/node_modules/react-is/index.js': [
+               'ForwardRef',
+               'Memo',
+               'isFragment'
+            ],
             'node_modules/react-is/index.js': ['ForwardRef', 'Memo', 'isFragment'],
             'node_modules/react-lazy-load-image-component/build/index.js': ['LazyLoadImage']
          }
