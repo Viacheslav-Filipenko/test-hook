@@ -15,7 +15,7 @@ export interface ICollectionCardProps {
    subtitle: string;
    count: number;
    image: string;
-   actionText: string;
+   actionText?: string;
    tintColor: string;
    onClick?: () => void;
 }
