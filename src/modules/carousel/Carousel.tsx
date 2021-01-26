@@ -2,17 +2,18 @@ import React from 'react';
 
 import CarouselProvider, { CarouselProps } from 'nuka-carousel';
 
-import { CarouselCenterLeftControls } from './components/CarouselCenterLeftControls/CarouselCenterLeftControls';
-import { CarouselCenterRightControls } from './components/CarouselCenterRightControls/CarouselCenterRightControls';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import useStyles from './carousel.jss';
 
 export interface ICarouselProps extends CarouselProps {
    children?: React.ReactNode;
+   color?: string;
 }
 
 export const Carousel: React.FC<ICarouselProps> = (props) => {
-   const { children } = props;
+   const { color, children } = props;
 
    const classes = useStyles();
 
@@ -28,8 +29,38 @@ export const Carousel: React.FC<ICarouselProps> = (props) => {
             framePadding="0 46px"
             cellAlign="left"
             renderBottomCenterControls={() => null}
-            renderCenterLeftControls={(props) => <CarouselCenterLeftControls {...props} />}
-            renderCenterRightControls={(props) => <CarouselCenterRightControls {...props} />}
+            renderCenterLeftControls={(props) => {
+               const { previousSlide, currentSlide, slideCount, slidesToShow } = props;
+
+               if (slidesToShow >= slideCount || !currentSlide) {
+                  return null;
+               }
+
+               return (
+                  <button
+                     arial-label="Previous topic"
+                     className={classes.arrowContainer}
+                     onClick={previousSlide}>
+                     <ArrowBackIosIcon style={{ color: color || 'black' }} />
+                  </button>
+               );
+            }}
+            renderCenterRightControls={(props) => {
+               const { nextSlide, currentSlide, slideCount, slidesToShow } = props;
+
+               if (slidesToShow >= slideCount || currentSlide === slideCount - slidesToShow) {
+                  return null;
+               }
+
+               return (
+                  <button
+                     aria-label="Next topic"
+                     className={classes.arrowContainer}
+                     onClick={nextSlide}>
+                     <ArrowForwardIosIcon style={{ color: color || 'black' }} />
+                  </button>
+               );
+            }}
             {...props}>
             {children}
          </CarouselProvider>
