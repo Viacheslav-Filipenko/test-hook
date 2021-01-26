@@ -5,6 +5,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './carousel-headline.jss';
+import { StylesProvider } from '@material-ui/core';
 
 export interface ICarouselHeadlineProps {
    href: string;
@@ -16,17 +17,19 @@ export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ children, h
    const classes = useStyles();
 
    return (
-      <div className={classes.container}>
-         <div className={classes.headlineWrapper}>
-            <div className={classes.headline}>
-               <Divider className={classes.divider} style={{ backgroundColor: color }} />
-               <Typography className={classes.title} style={{ color: color }} variant="h1">
-                  <Link className={classes.link} color="inherit" href={href}>
-                     {children}
-                  </Link>
-               </Typography>
+      <StylesProvider injec>
+         <div className={classes.container}>
+            <div className={classes.headlineWrapper}>
+               <div className={classes.headline}>
+                  <Divider className={classes.divider} style={{ backgroundColor: color }} />
+                  <Typography className={classes.title} style={{ color: color }} variant="h1">
+                     <Link className={classes.link} color="inherit" href={href}>
+                        {children}
+                     </Link>
+                  </Typography>
+               </div>
             </div>
          </div>
-      </div>
+      </StylesProvider>
    );
 };
