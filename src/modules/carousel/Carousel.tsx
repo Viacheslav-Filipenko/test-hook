@@ -21,8 +21,7 @@ export interface ICarouselProps extends CarouselProps {
    width: string;
    visibleSlides: ISizes;
 
-   children?: React.ReactNode | React.ReactNode[];
-
+   children: React.ReactNode | React.ReactNode[];
    data: any[];
 }
 
@@ -73,7 +72,6 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             slidesToScroll={1}
             cellAlign={'left'}
             slidesToShow={_visibleSlides}
-            {...props}
             >
             {children}
          </CarouselProvider>
