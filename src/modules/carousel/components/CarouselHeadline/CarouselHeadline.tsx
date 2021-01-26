@@ -17,7 +17,7 @@ export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ children, h
    const classes = useStyles();
 
    return (
-      <StylesProvider injec>
+      <StylesProvider injectFirst>
          <div className={classes.container}>
             <div className={classes.headlineWrapper}>
                <div className={classes.headline}>
