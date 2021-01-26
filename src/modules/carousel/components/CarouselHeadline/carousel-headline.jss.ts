@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme: Theme) => {
          maxWidth: 1280
       },
       title: {
-         position: 'relative',
-         fontSize: '21px'
+         position: 'relative'
       },
       divider: {
          position: 'relative',
