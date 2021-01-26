@@ -1,4 +1,5 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+
 const useStyles = makeStyles((_theme: Theme) => {
    return createStyles({
       caption: {
@@ -30,12 +31,11 @@ const useStyles = makeStyles((_theme: Theme) => {
          maxWidth: '100%',
          verticalAlign: 'middle'
       },
-
       container: {
          width: '100%',
          display: 'block',
-         '&:focus': { textDecoration: 'underline' },
-         cursor: 'default'
+         cursor: 'default',
+         '&:focus': { textDecoration: 'underline' }
       }
    });
 });

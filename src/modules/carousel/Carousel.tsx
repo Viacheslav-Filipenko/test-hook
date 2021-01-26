@@ -1,11 +1,9 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
+
+import CarouselProvider from 'nuka-carousel';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
-import useStyles from './carousel.jss';
-import withWidth from '@material-ui/core/withWidth';
-import CarouselProvider from 'nuka-carousel';
 
 import {
    CollectionCard,
@@ -16,38 +14,37 @@ import {
    CarouselImageCard
 } from './components/CarouselImageCard/CarouselImageCard';
 
-import { withStylesInjectedFirst } from '../../core/hoc/with-styles-injected-first';
 
-export interface CarouselProps {
-   // data
-   title?: string;
+import withWidth from '@material-ui/core/withWidth';
+import { withStylesInjectedFirst } from '../../core/hocs/with-styles-injected-first';
 
+import useStyles from './carousel.jss';
+
+interface ISizes {
+   xs: number;
+   sm: number;
+   lg: number;
+}
+export interface ICarouselProps {
    //color
    arrowColor?: string;
-   titleColor?: string;
    childrenColor?: string;
 
    // bool flags
    arrows?: boolean;
    autoplay?: boolean;
 
-   linkTitle?: string;
    // slide params
    currenSlide?: number;
    sliderClasses?: '';
    isCardImage: boolean;
    infinite: boolean;
    width: string;
-   visibleSlides: Sizes;
+   visibleSlides: ISizes;
    cellSpacing?: number;
    data: (ICarouselImageCardProps | ICollectionCardProps)[];
 }
 
-interface Sizes {
-   xs: number;
-   sm: number;
-   lg: number;
-}
 const mapSlides = (data: any[], isCard: boolean) => {
    return isCard
       ? data.map((itm, i) => <CarouselImageCard key={i} {...itm} />)
@@ -64,17 +61,13 @@ const mapSlides = (data: any[], isCard: boolean) => {
         ));
 };
 
-function CarouselComponent({
-   arrowColor = 'black',
-   width,
-   isCardImage,
-   visibleSlides,
-   cellSpacing,
-   data
-}: CarouselProps): ReactElement {
+const CarouselComponent: React.FC<ICarouselProps> = (props) => {
+   const { arrowColor = 'black', width, isCardImage, visibleSlides, cellSpacing, data } = props;
+
    const classes = useStyles();
+
    const _width = width === 'md' ? 'sm' : width === 'xl' ? 'lg' : width;
-   const _visibleSlides: number = visibleSlides[_width as keyof typeof visibleSlides];
+   const _visibleSlides = visibleSlides[_width as keyof typeof visibleSlides];
 
    return (
       <div className={classes.sliderContainer}>
@@ -99,14 +92,13 @@ function CarouselComponent({
             disableEdgeSwiping={true}
             cellSpacing={cellSpacing}
             renderCenterLeftControls={({ previousSlide, currentSlide }) => {
-               console.log(currentSlide);
                if (_visibleSlides >= data.length || currentSlide === 0) return <div />;
                return (
                   <button
                      arial-label="previous topic"
                      className={classes.arrowContainer}
                      onClick={previousSlide}>
-                     <ArrowBackIosIcon style={{ color: `${arrowColor}` }} />
+                     <ArrowBackIosIcon style={{ color: arrowColor }} />
                   </button>
                );
             }}
@@ -120,7 +112,7 @@ function CarouselComponent({
                      aria-label="next topic"
                      className={classes.arrowContainer}
                      onClick={nextSlide}>
-                     <ArrowForwardIosIcon style={{ color: `${arrowColor}` }} />
+                     <ArrowForwardIosIcon style={{ color: arrowColor }} />
                   </button>
                );
             }}
@@ -132,6 +124,6 @@ function CarouselComponent({
          </CarouselProvider>
       </div>
    );
-}
+};
 
 export const Carousel = withStylesInjectedFirst(withWidth()(CarouselComponent));

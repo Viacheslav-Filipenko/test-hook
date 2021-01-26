@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
-import { withStylesInjectedFirst } from '../../../../core/hoc/with-styles-injected-first';
+import { withStylesInjectedFirst } from '../../../../core/hocs/with-styles-injected-first';
 
 import useStyles from './collectionCard.jss';
 

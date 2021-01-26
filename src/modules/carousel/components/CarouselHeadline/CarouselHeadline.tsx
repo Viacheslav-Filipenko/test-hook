@@ -4,7 +4,7 @@ import Link from '@material-ui/core/Link';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
-import { withStylesInjectedFirst } from '../../../../core/hoc/with-styles-injected-first';
+import { withStylesInjectedFirst } from '../../../../core/hocs/with-styles-injected-first';
 
 import useStyles from './carousel-headline.jss';
 
@@ -14,7 +14,7 @@ export interface ICarouselHeadlineProps {
    children?: React.ReactNode;
 }
 
-export const CarouselHeadlineComponent: React.FC<ICarouselHeadlineProps> = (props) => {
+const CarouselHeadlineComponent: React.FC<ICarouselHeadlineProps> = (props) => {
    const { children, href, color } = props;
 
    const classes = useStyles();

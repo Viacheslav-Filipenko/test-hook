@@ -1,7 +1,16 @@
-export { CollectionCard } from './modules/collection/components/CollectionCard/CollectionCard';
-
-export { Carousel } from './modules/carousel/Carousel';
 export {
-   CarouselImageCard
+   CollectionCard,
+   ICollectionCardProps
+} from './modules/collection/components/CollectionCard/CollectionCard';
+
+export { Carousel, ICarouselProps } from './modules/carousel/Carousel';
+
+export {
+   CarouselImageCard,
+   ICarouselImageCardProps
 } from './modules/carousel/components/CarouselImageCard/CarouselImageCard';
-export { CarouselHeadline } from './modules/carousel/components/CarouselHeadline/CarouselHeadline';
+
+export {
+   CarouselHeadline,
+   ICarouselHeadlineProps
+} from './modules/carousel/components/CarouselHeadline/CarouselHeadline';

@@ -1,10 +1,7 @@
 {
-   "name": "react-library-example",
+   "name": "smb-react-components-library",
    "version": "1.0.0",
    "description": "Simple example of react library",
-   "author": "jmorozov",
-   "license": "MIT",
-   "repository": "jmorozov/react-library-example",
    "main": "dist/index.js",
    "module": "dist/index.es.js",
    "jsnext:main": "dist/index.es.js",
@@ -65,7 +62,6 @@
       "eslint-plugin-prettier": "3.1.0",
       "eslint-plugin-react": "7.12.4",
       "eslint-plugin-react-hooks": "^1.5.0",
-      "husky": "^3.0.0",
       "jest": "24.8.0",
       "lint-staged": "^9.1.0",
       "onchange": "6.0.0",
@@ -89,11 +85,6 @@
    "files": [
       "dist"
    ],
-   "husky": {
-      "hooks": {
-         "pre-commit": "npm run test && lint-staged"
-      }
-   },
    "lint-staged": {
       "*.{js,ts,tsx,css,json,md}": [
          "prettier --write",

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import NoSimOutlinedIcon from '@material-ui/icons/NoSimOutlined';
 
 import useStyles from './FallbackImage.jss';
