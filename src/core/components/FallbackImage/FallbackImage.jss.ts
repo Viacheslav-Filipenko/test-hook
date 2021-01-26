@@ -1,7 +1,7 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) =>
-   createStyles({
+const useStyles = makeStyles((theme: Theme) => {
+   return createStyles({
       container: {
          color: theme.palette.primary.main,
          border: `2px solid ${theme.palette.primary.main}`,
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
       headline: {
          textTransform: 'uppercase'
       }
-   })
-);
+   });
+});
 
 export default useStyles;

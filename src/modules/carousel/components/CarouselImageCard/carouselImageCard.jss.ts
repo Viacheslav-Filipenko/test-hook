@@ -1,6 +1,6 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-const useStyles = makeStyles((_theme: Theme) =>
-   createStyles({
+const useStyles = makeStyles((_theme: Theme) => {
+   return createStyles({
       caption: {
          color: '#000',
          padding: '0rem',
@@ -37,6 +37,6 @@ const useStyles = makeStyles((_theme: Theme) =>
          '&:focus': { textDecoration: 'underline' },
          cursor: 'default'
       }
-   })
-);
+   });
+});
 export default useStyles;

@@ -28,8 +28,8 @@ export const Carousel: React.FC<ICarouselProps> = (props) => {
             framePadding="0 46px"
             cellAlign="left"
             renderBottomCenterControls={() => null}
-            renderCenterLeftControls={CarouselCenterLeftControls}
-            renderCenterRightControls={CarouselCenterRightControls}
+            renderCenterLeftControls={(props) => <CarouselCenterLeftControls {...props} />}
+            renderCenterRightControls={(props) => <CarouselCenterRightControls {...props} />}
             {...props}>
             {children}
          </CarouselProvider>

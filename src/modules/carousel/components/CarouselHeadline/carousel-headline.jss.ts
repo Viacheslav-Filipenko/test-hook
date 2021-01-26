@@ -1,7 +1,7 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) =>
-   createStyles({
+const useStyles = makeStyles((theme: Theme) => {
+   return createStyles({
       sliderContainer: {
          maxWidth: 1280 + 46 + 46,
          margin: '0 auto'
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
          border: 0,
          cursor: 'pointer'
       }
-   })
-);
+   });
+});
 
 export default useStyles;
