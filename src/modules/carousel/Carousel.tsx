@@ -21,7 +21,7 @@ export interface ICarouselProps extends CarouselProps {
    width: string;
    visibleSlides: ISizes;
 
-   children?: React.ReactNode || React.ReactNode[];
+   children?: React.ReactNode | React.ReactNode[];
 
    data: any[];
 }
