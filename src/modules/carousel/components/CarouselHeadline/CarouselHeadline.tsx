@@ -16,12 +16,12 @@ export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ children, h
    const classes = useStyles();
 
    return (
-      <div className={classes.container}>
-         <div className={classes.headlineWrapper}>
-            <div className={classes.headline}>
-               <Divider className={classes.divider} style={{ backgroundColor: color }} />
-               <Typography className={classes.title} style={{ color: color }} variant="h1">
-                  <Link className={classes.link} color="inherit" href={href}>
+      <div className={classes.carouselHeadline + ' ' + 'container'}>
+         <div className="headlineWrapper">
+            <div className="headline">
+               <Divider className="divider" style={{ backgroundColor: color }} />
+               <Typography className="title" style={{ color: color }} variant="h1">
+                  <Link className="link" color="inherit" href={href}>
                      {children}
                   </Link>
                </Typography>
