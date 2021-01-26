@@ -35,7 +35,7 @@ export default {
       }),
       commonjs({
          namedExports: {
-            'node_modules/@material-ui/utils/node_modules/react-is/index.js': [
+            'node_modules/@material-ui/core/node_modules/react-is/index.js': [
                'ForwardRef',
                'Memo',
                'isFragment'
