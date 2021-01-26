@@ -1,10 +1,12 @@
 import React from 'react';
+
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import { Image } from '../../../../core/components/Image/Image';
 
 import useStyles from './carouselImageCard.jss';
 
-import { Image } from '../../../../core/components/Image/Image';
+import { withStylesInjectedFirst } from '../../../../core/hoc/with-styles-injected-first';
 
 export interface ICarouselImageCardProps {
    img: string;
@@ -22,7 +24,7 @@ const defaultCarouselImageCardProps: ICarouselImageCardProps = {
    maxHeight: 200
 };
 
-export const CarouselImageCard: React.FC<ICarouselImageCardProps> = (props) => {
+export const CarouselImageCardComponent: React.FC<ICarouselImageCardProps> = (props) => {
    const { img, caption, link, maxWidth, maxHeight } = {
       ...defaultCarouselImageCardProps,
       ...props
@@ -41,3 +43,5 @@ export const CarouselImageCard: React.FC<ICarouselImageCardProps> = (props) => {
       </Link>
    );
 };
+
+export const CarouselImageCard = withStylesInjectedFirst(CarouselImageCardComponent);

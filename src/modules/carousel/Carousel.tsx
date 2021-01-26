@@ -6,6 +6,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import useStyles from './carousel.jss';
 import withWidth from '@material-ui/core/withWidth';
 import CarouselProvider from 'nuka-carousel';
+
 import {
    CollectionCard,
    ICollectionCardProps
@@ -14,6 +15,8 @@ import {
    ICarouselImageCardProps,
    CarouselImageCard
 } from './components/CarouselImageCard/CarouselImageCard';
+
+import { withStylesInjectedFirst } from '../../core/hoc/with-styles-injected-first';
 
 export interface CarouselProps {
    // data
@@ -60,6 +63,7 @@ const mapSlides = (data: any[], isCard: boolean) => {
            />
         ));
 };
+
 function CarouselComponent({
    arrowColor = 'black',
    width,
@@ -130,4 +134,4 @@ function CarouselComponent({
    );
 }
 
-export const Carousel = withWidth()(CarouselComponent);
+export const Carousel = withStylesInjectedFirst(withWidth()(CarouselComponent));

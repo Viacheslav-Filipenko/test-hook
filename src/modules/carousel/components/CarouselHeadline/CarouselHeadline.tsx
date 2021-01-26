@@ -4,8 +4,9 @@ import Link from '@material-ui/core/Link';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
+import { withStylesInjectedFirst } from '../../../../core/hoc/with-styles-injected-first';
+
 import useStyles from './carousel-headline.jss';
-import { StylesProvider } from '@material-ui/core';
 
 export interface ICarouselHeadlineProps {
    href: string;
@@ -13,23 +14,25 @@ export interface ICarouselHeadlineProps {
    children?: React.ReactNode;
 }
 
-export const CarouselHeadline: React.FC<ICarouselHeadlineProps> = ({ children, href, color }) => {
+export const CarouselHeadlineComponent: React.FC<ICarouselHeadlineProps> = (props) => {
+   const { children, href, color } = props;
+
    const classes = useStyles();
 
    return (
-      <StylesProvider injectFirst>
-         <div className={classes.container}>
-            <div className={classes.headlineWrapper}>
-               <div className={classes.headline}>
-                  <Divider className={classes.divider} style={{ backgroundColor: color }} />
-                  <Typography className={classes.title} style={{ color: color }} variant="h1">
-                     <Link className={classes.link} color="inherit" href={href}>
-                        {children}
-                     </Link>
-                  </Typography>
-               </div>
+      <div className={classes.container}>
+         <div className={classes.headlineWrapper}>
+            <div className={classes.headline}>
+               <Divider className={classes.divider} style={{ backgroundColor: color }} />
+               <Typography className={classes.title} style={{ color: color }} variant="h1">
+                  <Link className={classes.link} color="inherit" href={href}>
+                     {children}
+                  </Link>
+               </Typography>
             </div>
          </div>
-      </StylesProvider>
+      </div>
    );
 };
+
+export const CarouselHeadline = withStylesInjectedFirst(CarouselHeadlineComponent);

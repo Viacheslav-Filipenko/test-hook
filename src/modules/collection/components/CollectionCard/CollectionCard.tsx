@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
+import { withStylesInjectedFirst } from '../../../../core/hoc/with-styles-injected-first';
+
 import useStyles from './collectionCard.jss';
 
 export interface ICollectionCardProps {
@@ -24,7 +26,7 @@ const defaultCollectionCardsProps = {
    actionText: 'Discover'
 };
 
-export const CollectionCard: React.FC<ICollectionCardProps> = (props) => {
+export const CollectionCardComponent: React.FC<ICollectionCardProps> = (props) => {
    const { image, title, subtitle, tintColor, count, onClick, actionText } = {
       ...defaultCollectionCardsProps,
       ...props
@@ -64,3 +66,5 @@ export const CollectionCard: React.FC<ICollectionCardProps> = (props) => {
       </Card>
    );
 };
+
+export const CollectionCard = withStylesInjectedFirst(CollectionCardComponent);
