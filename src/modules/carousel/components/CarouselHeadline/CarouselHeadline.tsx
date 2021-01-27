@@ -15,7 +15,7 @@ export interface ICarouselHeadlineProps {
 }
 
 const CarouselHeadlineComponent: React.FC<ICarouselHeadlineProps> = (props) => {
-   const { children, href, color } = props;
+   const { children, href, color = 'black' } = props;
 
    const classes = useStyles();
 
