@@ -20,24 +20,6 @@ const useStyles = makeStyles((theme: Theme) => {
       wrapper: {
          padding: '0 2.9375rem'
       },
-      headline: {
-         paddingBottom: 24,
-         '& hr': {
-            marginBottom: 21
-         }
-      },
-      headlineWrapper: {
-         width: '100%',
-         maxWidth: 1280
-      },
-      title: {
-         position: 'relative',
-         fontSize: '21px'
-      },
-      divider: {
-         position: 'relative',
-         height: 3
-      },
       arrowBack: {
          display: 'flex',
          alignItems: 'center',

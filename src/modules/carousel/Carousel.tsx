@@ -15,19 +15,14 @@ interface ISizes {
    lg: number;
 }
 export interface ICarouselProps extends CarouselProps {
-   //color
-   arrowColor?: string;
-
+   color?: string;
    width: string;
    visibleSlides: ISizes;
-
    children: React.ReactNode | React.ReactNode[];
-   data: any[];
 }
 
-
 const CarouselComponent: React.FC<ICarouselProps> = (props) => {
-   const { arrowColor = 'black', cellSpacing, width, visibleSlides, children, data } = props;
+   const { color = 'black', cellSpacing, width, visibleSlides, children } = props;
 
    const classes = useStyles();
 
@@ -43,20 +38,23 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             framePadding={'0 46px'}
             disableEdgeSwiping={true}
             cellSpacing={cellSpacing}
-            renderCenterLeftControls={({ previousSlide, currentSlide }) => {
-               if (_visibleSlides >= data?.length || currentSlide === 0) return <div />;
+            renderCenterLeftControls={({ previousSlide, slideCount, currentSlide }) => {
+               if (_visibleSlides >= slideCount || currentSlide === 0) {
+                  return null;
+               }
+
                return (
                   <button
                      arial-label="previous topic"
                      className={classes.arrowContainer}
                      onClick={previousSlide}>
-                     <ArrowBackIosIcon style={{ color: arrowColor }} />
+                     <ArrowBackIosIcon style={{ color }} />
                   </button>
                );
             }}
-            renderCenterRightControls={({ nextSlide, currentSlide }) => {
-               if (_visibleSlides >= data.length || currentSlide === data.length - _visibleSlides) {
-                  return <div />;
+            renderCenterRightControls={({ nextSlide, slideCount, currentSlide }) => {
+               if (_visibleSlides >= slideCount || currentSlide === slideCount - _visibleSlides) {
+                  return null;
                }
 
                return (
@@ -64,13 +62,13 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
                      aria-label="next topic"
                      className={classes.arrowContainer}
                      onClick={nextSlide}>
-                     <ArrowForwardIosIcon style={{ color: arrowColor }} />
+                     <ArrowForwardIosIcon style={{ color }} />
                   </button>
                );
             }}
             autoplay={true}
             slidesToScroll={1}
-            cellAlign={'left'}
+            cellAlign='left'
             slidesToShow={_visibleSlides}
             >
             {children}
