@@ -22,15 +22,8 @@ export interface ICollectionCardProps {
    onClick?: () => void;
 }
 
-const defaultCollectionCardsProps = {
-   actionText: 'Discover'
-};
-
 export const CollectionCardComponent: React.FC<ICollectionCardProps> = (props) => {
-   const { image, title, subtitle, tintColor, count, onClick, actionText } = {
-      ...defaultCollectionCardsProps,
-      ...props
-   };
+   const { image, title, subtitle, tintColor, count, onClick, actionText = 'Discover' } = props;
 
    const classes = useStyles();
 
