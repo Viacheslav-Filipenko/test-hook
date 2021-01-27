@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CarouselProvider, { CarouselProps } from 'nuka-carousel';
+import CarouselProvider, { CarouselProps, CarouselRenderControl } from 'nuka-carousel';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
@@ -45,6 +45,37 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
    const _width = width === 'md' ? 'sm' : width === 'xl' ? 'lg' : width;
    const slidesToShow = visibleSlides[_width as keyof typeof visibleSlides];
 
+   const CenterLeftControls: CarouselRenderControl = (props) => {
+      const { previousSlide, slideCount, currentSlide } = props;
+
+      if (slidesToShow >= slideCount || !currentSlide) {
+         return null;
+      }
+
+      return (
+         <button
+            arial-label="previous topic"
+            className={classes.arrowContainer}
+            onClick={previousSlide}>
+            <ArrowBackIosIcon style={{ color }} />
+         </button>
+      );
+   };
+
+   const CenterRightControls: CarouselRenderControl = (props) => {
+      const { nextSlide, slideCount, currentSlide } = props;
+
+      if (slidesToShow >= slideCount || currentSlide === slideCount - slidesToShow) {
+         return null;
+      }
+
+      return (
+         <button aria-label="next topic" className={classes.arrowContainer} onClick={nextSlide}>
+            <ArrowForwardIosIcon style={{ color }} />
+         </button>
+      );
+   };
+
    return (
       <div className={classes.sliderContainer}>
          <CarouselProvider
@@ -59,34 +90,8 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             enableKeyboardControls={enableKeyboardControls}
             getControlsContainerStyles={getControlsContainerStyles}
             renderBottomCenterControls={renderBottomCenterControls}
-            renderCenterLeftControls={({ previousSlide, slideCount, currentSlide }) => {
-               if (slidesToShow >= slideCount || !currentSlide) {
-                  return null;
-               }
-
-               return (
-                  <button
-                     arial-label="previous topic"
-                     className={classes.arrowContainer}
-                     onClick={previousSlide}>
-                     <ArrowBackIosIcon style={{ color }} />
-                  </button>
-               );
-            }}
-            renderCenterRightControls={({ nextSlide, slideCount, currentSlide }) => {
-               if (slidesToShow >= slideCount || currentSlide === slideCount - slidesToShow) {
-                  return null;
-               }
-
-               return (
-                  <button
-                     aria-label="next topic"
-                     className={classes.arrowContainer}
-                     onClick={nextSlide}>
-                     <ArrowForwardIosIcon style={{ color }} />
-                  </button>
-               );
-            }}>
+            renderCenterLeftControls={CenterLeftControls}
+            renderCenterRightControls={CenterRightControls}>
             {children}
          </CarouselProvider>
       </div>
