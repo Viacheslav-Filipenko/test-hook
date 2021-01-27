@@ -22,7 +22,14 @@ export interface ICarouselProps extends CarouselProps {
 }
 
 const CarouselComponent: React.FC<ICarouselProps> = (props) => {
-   const { color = 'black', cellSpacing, width, visibleSlides, children } = props;
+   const {
+      color = 'black',
+      cellSpacing,
+      width,
+      visibleSlides,
+      children,
+      getControlsContainerStyles
+   } = props;
 
    const classes = useStyles();
 
@@ -32,6 +39,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
    return (
       <div className={classes.sliderContainer}>
          <CarouselProvider
+            getControlsContainerStyles={getControlsContainerStyles}
             dragging={true}
             enableKeyboardControls={true}
             renderBottomCenterControls={() => ''}
@@ -68,9 +76,8 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             }}
             autoplay={true}
             slidesToScroll={1}
-            cellAlign='left'
-            slidesToShow={_visibleSlides}
-            >
+            cellAlign="left"
+            slidesToShow={_visibleSlides}>
             {children}
          </CarouselProvider>
       </div>
