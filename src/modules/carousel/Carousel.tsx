@@ -14,6 +14,7 @@ interface ISizes {
    sm: number;
    lg: number;
 }
+
 export interface ICarouselProps extends CarouselProps {
    color?: string;
    width: string;
@@ -23,31 +24,43 @@ export interface ICarouselProps extends CarouselProps {
 
 const CarouselComponent: React.FC<ICarouselProps> = (props) => {
    const {
-      color = 'black',
       cellSpacing,
       width,
       visibleSlides,
       children,
-      getControlsContainerStyles
+      getControlsContainerStyles,
+      color = 'black',
+      autoplay = true,
+      dragging = true,
+      disableEdgeSwiping = true,
+      enableKeyboardControls = true,
+      cellAlign = 'left',
+      slidesToScroll = 1,
+      framePadding = '0 46px',
+      renderBottomCenterControls = null
    } = props;
 
    const classes = useStyles();
 
    const _width = width === 'md' ? 'sm' : width === 'xl' ? 'lg' : width;
-   const _visibleSlides = visibleSlides[_width as keyof typeof visibleSlides];
+   const slidesToShow = visibleSlides[_width as keyof typeof visibleSlides];
 
    return (
       <div className={classes.sliderContainer}>
          <CarouselProvider
-            getControlsContainerStyles={getControlsContainerStyles}
-            dragging={true}
-            enableKeyboardControls={true}
-            renderBottomCenterControls={() => ''}
-            framePadding={'0 46px'}
-            disableEdgeSwiping={true}
+            autoplay={autoplay}
+            dragging={dragging}
+            cellAlign={cellAlign}
             cellSpacing={cellSpacing}
+            framePadding={framePadding}
+            slidesToShow={slidesToShow}
+            slidesToScroll={slidesToScroll}
+            disableEdgeSwiping={disableEdgeSwiping}
+            enableKeyboardControls={enableKeyboardControls}
+            getControlsContainerStyles={getControlsContainerStyles}
+            renderBottomCenterControls={renderBottomCenterControls}
             renderCenterLeftControls={({ previousSlide, slideCount, currentSlide }) => {
-               if (_visibleSlides >= slideCount || currentSlide === 0) {
+               if (slidesToShow >= slideCount || !currentSlide) {
                   return null;
                }
 
@@ -61,7 +74,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
                );
             }}
             renderCenterRightControls={({ nextSlide, slideCount, currentSlide }) => {
-               if (_visibleSlides >= slideCount || currentSlide === slideCount - _visibleSlides) {
+               if (slidesToShow >= slideCount || currentSlide === slideCount - slidesToShow) {
                   return null;
                }
 
@@ -73,11 +86,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
                      <ArrowForwardIosIcon style={{ color }} />
                   </button>
                );
-            }}
-            autoplay={true}
-            slidesToScroll={1}
-            cellAlign="left"
-            slidesToShow={_visibleSlides}>
+            }}>
             {children}
          </CarouselProvider>
       </div>

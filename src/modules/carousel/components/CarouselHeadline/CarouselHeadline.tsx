@@ -9,13 +9,13 @@ import { withStylesInjectedFirst } from '../../../../core/hocs/with-styles-injec
 import useStyles from './carousel-headline.jss';
 
 export interface ICarouselHeadlineProps {
-   href: string;
-   color: string;
+   href?: string;
+   color?: string;
    children?: React.ReactNode;
 }
 
 const CarouselHeadlineComponent: React.FC<ICarouselHeadlineProps> = (props) => {
-   const { children, href, color = 'black' } = props;
+   const { children, href = '#', color = 'black' } = props;
 
    const classes = useStyles();
 
