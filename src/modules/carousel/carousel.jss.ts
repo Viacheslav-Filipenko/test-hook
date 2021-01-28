@@ -1,6 +1,6 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => {
+const useStyles = makeStyles((_theme: Theme) => {
 	return createStyles({
 		sliderContainer: {
 			maxWidth: 1280 + 46 + 46,
