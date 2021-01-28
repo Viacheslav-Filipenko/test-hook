@@ -5,7 +5,6 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import withWidth from '@material-ui/core/withWidth';
-import { withStylesInjectedFirst } from '../../core/hocs/with-styles-injected-first';
 
 import useStyles from './carousel.jss';
 
@@ -98,4 +97,4 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
    );
 };
 
-export const Carousel = withStylesInjectedFirst(withWidth()(CarouselComponent));
+export const Carousel = withWidth()(CarouselComponent);

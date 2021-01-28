@@ -4,8 +4,6 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { Image } from '../../../../core/components/Image/Image';
 
-import { withStylesInjectedFirst } from '../../../../core/hocs/with-styles-injected-first';
-
 import useStyles from './carouselImageCard.jss';
 
 export interface ICarouselImageCardProps {
@@ -33,4 +31,4 @@ const CarouselImageCardComponent: React.FC<ICarouselImageCardProps> = (props) =>
 	);
 };
 
-export const CarouselImageCard = withStylesInjectedFirst(CarouselImageCardComponent);
+export const CarouselImageCard = CarouselImageCardComponent;
