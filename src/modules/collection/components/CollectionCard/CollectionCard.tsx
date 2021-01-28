@@ -36,7 +36,11 @@ export const CollectionCardComponent: React.FC<ICollectionCardProps> = (props) =
                </div>
                <ButtonBase
                   className={classes.cardDiscoverButton}
-                  onClick={() => onClick && onClick()}>
+                  onClick={() => {
+                     if (onClick) {
+                        onClick();
+                     }
+                  }}>
                   <Typography variant="caption" className={classes.cardDiscoverButtonTypo}>
                      {actionText}
                   </Typography>
