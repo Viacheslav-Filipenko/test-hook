@@ -9,39 +9,28 @@ import { withStylesInjectedFirst } from '../../../../core/hocs/with-styles-injec
 import useStyles from './carouselImageCard.jss';
 
 export interface ICarouselImageCardProps {
-   img: string;
-   caption?: string;
-   link?: string | undefined;
-   maxWidth?: number;
-   maxHeight?: number;
+	img: string;
+	caption?: string;
+	link?: string | undefined;
+	maxWidth?: number;
+	maxHeight?: number;
 }
 
-const defaultCarouselImageCardProps: ICarouselImageCardProps = {
-   img: '',
-   caption: '',
-   link: '',
-   maxWidth: 200,
-   maxHeight: 200
-};
-
 const CarouselImageCardComponent: React.FC<ICarouselImageCardProps> = (props) => {
-   const { img, caption, link, maxWidth, maxHeight } = {
-      ...defaultCarouselImageCardProps,
-      ...props
-   };
+	const { img = '', caption = '', link = '', maxWidth = 200, maxHeight = 200 } = props;
 
-   const classes = useStyles();
+	const classes = useStyles();
 
-   return (
-      <Link href={link} className={classes.container}>
-         <div style={{ height: maxHeight, maxWidth: maxWidth }} className={classes.imageContainer}>
-            <Image alt="" caption={caption} width="auto" height="auto" src={img} />
-         </div>
-         <Typography style={{ maxWidth: maxWidth }} className={classes.caption} variant="caption">
-            {caption}
-         </Typography>
-      </Link>
-   );
+	return (
+		<Link href={link} className={classes.container}>
+			<div style={{ height: maxHeight, maxWidth: maxWidth }} className={classes.imageContainer}>
+				<Image alt='' caption={caption} width='auto' height='auto' src={img} />
+			</div>
+			<Typography style={{ maxWidth: maxWidth }} className={classes.caption} variant='caption'>
+				{caption}
+			</Typography>
+		</Link>
+	);
 };
 
 export const CarouselImageCard = withStylesInjectedFirst(CarouselImageCardComponent);
