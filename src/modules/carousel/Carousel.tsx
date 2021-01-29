@@ -60,7 +60,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             arial-label={previousButtonAriaLabel}
             className={classes.arrowContainer}
             onClick={previousSlide}
-            style={{ color }}>
+            style={{ color: isDisabled ? 'initial' : color }}>
             <ArrowBackIosIcon />
          </IconButton>
       );
@@ -77,7 +77,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             aria-label={nextButtonAriaLabel}
             className={classes.arrowContainer}
             onClick={nextSlide}
-            style={{ color }}>
+            style={{ color: isDisabled ? 'initial' : color }}>
             <ArrowForwardIosIcon />
          </IconButton>
       );
