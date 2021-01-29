@@ -2,7 +2,7 @@ import React from 'react';
 
 import CarouselProvider, { CarouselProps, CarouselRenderControl } from 'nuka-carousel';
 import ArrowBackIosOutlinedIcon from '@material-ui/icons/ArrowBackIosOutlined';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowForwardIosOutlinedIcon from '@material-ui/icons/ArrowForwardIosOutlined';
 import { IconButton } from '@material-ui/core';
 
 import withWidth from '@material-ui/core/withWidth';
@@ -80,7 +80,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             className={classes.arrowContainer}
             onClick={nextSlide}
             style={{ color: isDisabled ? 'rgba(0, 0, 0, 0.54)' : color }}>
-            <ArrowForwardIosIcon />
+            <ArrowForwardIosOutlinedIcon />
          </IconButton>
       );
    };
