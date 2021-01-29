@@ -41,7 +41,7 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
       cellAlign = 'left',
       slidesToScroll = 1,
       framePadding = '0 46px',
-      renderBottomCenterControls = null,
+      renderBottomCenterControls = null
    } = props;
 
    const classes = useStyles();
@@ -52,16 +52,16 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
    const CenterLeftControls: CarouselRenderControl = (props) => {
       const { previousSlide, slideCount, currentSlide } = props;
 
-      if (slidesToShow >= slideCount || !currentSlide) {
-         return null;
-      }
+      const isDisabled = slidesToShow >= slideCount || !currentSlide;
 
       return (
          <IconButton
+            disabled={isDisabled}
             arial-label={previousButtonAriaLabel}
             className={classes.arrowContainer}
-            onClick={previousSlide}>
-            <ArrowBackIosIcon style={{ color }} />
+            onClick={previousSlide}
+            style={{ color }}>
+            <ArrowBackIosIcon />
          </IconButton>
       );
    };
@@ -69,12 +69,11 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
    const CenterRightControls: CarouselRenderControl = (props) => {
       const { nextSlide, slideCount, currentSlide } = props;
 
-      if (slidesToShow >= slideCount || currentSlide === slideCount - slidesToShow) {
-         return null;
-      }
+      const isDisabled = slidesToShow >= slideCount || currentSlide === slideCount - slidesToShow;
 
       return (
          <IconButton
+            disabled={isDisabled}
             aria-label={nextButtonAriaLabel}
             className={classes.arrowContainer}
             onClick={nextSlide}

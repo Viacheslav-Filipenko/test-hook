@@ -47,8 +47,8 @@ const useStyles = makeStyles((_theme: Theme) => {
 		},
 		arrowContainer: {
 			background: 'none',
+			padding: '10px',
 			border: 0,
-			cursor: 'pointer',
 		},
 	});
 });
