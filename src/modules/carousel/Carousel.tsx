@@ -59,10 +59,10 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
             disabled={isDisabled}
             arial-label={previousButtonAriaLabel}
             className={classes.arrowContainer}
-            size='small'
+            size="medium"
             onClick={previousSlide}
             style={{ color: isDisabled ? 'rgba(0, 0, 0, 0.54)' : color }}>
-            <ArrowBackIosOutlinedIcon fontSize='small' />
+            <ArrowBackIosOutlinedIcon />
          </IconButton>
       );
    };
@@ -75,12 +75,12 @@ const CarouselComponent: React.FC<ICarouselProps> = (props) => {
       return (
          <IconButton
             disabled={isDisabled}
-			aria-label={nextButtonAriaLabel}
-			size='small'
+            aria-label={nextButtonAriaLabel}
+            size="medium"
             className={classes.arrowContainer}
             onClick={nextSlide}
             style={{ color: isDisabled ? 'rgba(0, 0, 0, 0.54)' : color }}>
-            <ArrowForwardIosIcon fontSize='small' />
+            <ArrowForwardIosIcon />
          </IconButton>
       );
    };

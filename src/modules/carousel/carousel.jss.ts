@@ -47,7 +47,7 @@ const useStyles = makeStyles((_theme: Theme) => {
 		},
 		arrowContainer: {
 			background: 'none',
-			padding: '8px !important',
+			padding: '9px !important',
 			border: 0,
 		},
 	});
