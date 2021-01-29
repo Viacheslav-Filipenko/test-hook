@@ -12,11 +12,6 @@ npm run start
 
 This is a components library for sharing react components via GitLab
 
-## Important notes
-
-All the components which using material ui components should be exported with withStylesInjectedFirst HOC,
-so the component will not redefine the other material ui components styles via the injecting style tag.
-
 ## Using library
 
 In order to use the library in other projects install it as dependency.
